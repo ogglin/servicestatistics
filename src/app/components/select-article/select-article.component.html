@@ -1,0 +1,13 @@
+<mat-form-field class="select_client">
+  <input matInput placeholder="Поиск по артикулу">
+</mat-form-field>
+
+<!--<p *ngFor="let article of articles">{{ article }}</p>-->
+<mat-selection-list #articles >
+  <mat-list-option *ngFor="let article of allArticles" [value]="article">
+    {{article}}
+  </mat-list-option>
+</mat-selection-list>
+<p>
+  Option selected: {{articles.selectedOptions.selected[0]?.value}}
+</p>

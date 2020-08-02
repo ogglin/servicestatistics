@@ -1,0 +1,49 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="!isLogin">
+  <mat-form-field>
+    <mat-label>Логин:</mat-label>
+    <input matInput type="text" formControlName="username" required>
+    <mat-error *ngIf="loginForm.controls.username.invalid"></mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Пароль:</mat-label>
+    <input matInput type="password" formControlName="password" required>
+  </mat-form-field>
+  <button type="submit" [disabled]="!loginForm.valid">Войти</button>
+</form>
+<mat-error *ngIf="error">
+  <p>
+    Ошибка: {{error}}
+  </p>
+</mat-error>
+
+<ng-container *ngIf="isLogin">
+  <app-main-menu (exit)="onExit()"></app-main-menu>
+  <mat-grid-list cols="4" role="list">
+    <mat-grid-tile class="flex_column" role="listitem">
+      <div class="w-100">
+        <app-select-company></app-select-company>
+      </div>
+      <div class="w-100">
+        <app-select-client></app-select-client>
+      </div>
+      <div class="w-100">
+        <app-select-article></app-select-article>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" role="listitem">
+        <app-show-status-list></app-show-status-list>
+        <app-input-title></app-input-title>
+        <app-input-sn></app-input-sn>
+        <app-input-print-cycle></app-input-print-cycle>
+        <app-input-scanner-cycle></app-input-scanner-cycle>
+        <app-input-inventory-num></app-input-inventory-num>
+        <app-input-status></app-input-status>
+        <app-select-works></app-select-works>
+        <app-select-details></app-select-details>
+        <app-select-employee></app-select-employee>
+        <app-input-work-time></app-input-work-time>
+        <app-select-place></app-select-place>
+        <app-input-description></app-input-description>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-container>

@@ -1,0 +1,18 @@
+<!--<p *ngFor="let u of userName">-->
+<!--  {{u}}-->
+<!--</p>-->
+<div class="main-menu">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Main menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>account_circle</mat-icon>
+      <span>{{username}}</span>
+    </button>
+    <button mat-menu-item (click)="onExit()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Выйти</span>
+    </button>
+  </mat-menu>
+</div>
