@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
   loginForm: FormGroup;
   error: string;
-  isLogin = false;
+  isLogin = true;
   title = 'servicestatistics';
 
   ngOnInit(): void {
